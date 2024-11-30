@@ -1,0 +1,26 @@
+﻿services:
+  orbita-challenge-back:
+    container_name: orbitaapp
+    image: orbita-challenge-back
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      ConnectionStrings_DefaultConnection: "Host=db;Database=postgres;Username=postgres;Password=postgres"
+    depends_on:
+      - db
+
+  db:
+    container_name: db
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - pgdata:/var/lib/postgres/data
+
+volumes:
+  pgdata: {}

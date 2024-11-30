@@ -1,0 +1,38 @@
+@orbita_challenge_back_HostAddress = http://localhost:8081/api
+
+### Get All Students
+GET {{orbita_challenge_back_HostAddress}}/students
+Accept: application/json
+
+### Get Student by ID
+GET {{orbita_challenge_back_HostAddress}}/students/1
+Accept: application/json
+
+### Create a New Student
+POST {{orbita_challenge_back_HostAddress}}/students
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "academicRegister": "12345",
+  "email": "john.doe@example.com",
+  "cpf": "12345678900"
+}
+
+### Update a Student
+PUT {{orbita_challenge_back_HostAddress}}/students/11
+Content-Type: application/json
+
+{
+  "id": 11,
+  "name": "John Doe Updated",
+  "academicRegister": "12345",
+  "email": "john.doe.updated@example.com",
+  "cpf": "12345678900"
+}
+
+### Delete a Student
+DELETE {{orbita_challenge_back_HostAddress}}/students/1
+
+### Test Endpoint
+GET {{orbita_challenge_back_HostAddress}}/students/test
